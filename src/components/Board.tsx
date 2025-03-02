@@ -190,16 +190,48 @@ const Board = () => {
       {gameWon.value && (
         <div
           style={{
-            width: "100vw",
-            margin: "50px 50px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            flexDirection: "column",
           }}
         >
-          <p
-            style={{ fontSize: "20px", fontWeight: "bold" }}
-          >{`Game Won By: ${gameWon.team}`}</p>
+          <div
+            style={{
+              width: "100vw",
+              margin: "50px 50px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <p
+              style={{ fontSize: "20px", fontWeight: "bold" }}
+            >{`Game Won By: ${gameWon.team}`}</p>
+          </div>
+          <div>
+            <button
+              style={{
+                width: "200px",
+                height: "50px",
+                borderRadius: "8px",
+                backgroundColor: "#95E52E",
+              }}
+              onClick={() => {
+                setBoardValues([...Array(9).fill("0")]);
+                setGameWon({ team: "", value: false });
+              }}
+            >
+              <span
+                style={{
+                  fontSize: "20px",
+                  color: "purple",
+                }}
+              >
+                {"RESTART"}
+              </span>
+            </button>
+          </div>
         </div>
       )}
     </div>
